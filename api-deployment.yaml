@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-datagrid-backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: customer-datagrid-backend
+  template:
+    metadata:
+      labels:
+        app: customer-datagrid-backend
+    spec:
+      containers:
+        - name: customer-datagrid-backend
+          image: sosay/customer-datagrid-backend:latest
+          ports:
+            - containerPort: 80
